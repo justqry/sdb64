@@ -19,6 +19,8 @@
 * 
 * START-HISTORY:
 * 19 Jan 04  0.6.1 SD launch. Earlier history details suppressed.
+* rev 0.9.1 Mar 25 mab remove call to system help (kernel(K$HELP,'') not avail on SD
+*                      Add help ALL to display help message.
 * END-HISTORY
 *
 * START-DESCRIPTION:
@@ -1512,10 +1514,14 @@ g:
 h:
    begin case
       ******************** HELP *********************
-* 20240121 mab use @VM not hard coded hex fd 	  
+* 20240121 mab use @VM not hard coded hex fd 
+* rev 0.9.1 remove call to help system (does not exist in SD)
+*           allow "ALL" to display all of help 
       case u.command matches "'HELP'":@VM:"'HELP '0X"
          s = trimf(trimb(u.command[6,99999]))
          i = 0
+         
+         if s = '' then s = "ALL"
 
          if len(s) then
             if help.text = '' then help.text = sysmsg(6603)  ;* Help text
@@ -1523,7 +1529,7 @@ h:
             help.text = help.text
             loop
                n = remove(help.text, delimiter)
-               if len(n) and (upcase(n[1,len(s)]) = s) then
+               if (len(n) and (upcase(n[1,len(s)]) = s)) or (s = 'ALL') then
                   i = index(n, "	", 1)
                   if i > 14 then
                      display n[1, i - 1]
@@ -1551,7 +1557,8 @@ h:
             if i = 0 then display sysmsg(6564) ;* No help available for this topic
          end else
             s = ""
-            gosub get.help
+ * rev 0.9.1           gosub get.help
+            gosub unrecognised
          end
 
       case 1
@@ -3510,9 +3517,10 @@ yes.no:
    return
 
 *****************************************************************************
-get.help:
-   i = kernel(K$HELP,'')
-   return
+* rev 0.9.1
+*get.help:
+*   i = kernel(K$HELP,'')
+*   return
 
 
 * ======================================================================

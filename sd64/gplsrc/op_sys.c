@@ -17,8 +17,10 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  * 
  * START-HISTORY:
+ * rev 0.9.1 Mar 25 mab return to single rev track
+ * 02 Jul 24 mab add 9010 and 9011 
  * 31 Dec 23 SD launch - prior history suppressed
- * 02 Jul 24 mab add 9010 and 9011   
+   
  * END-HISTORY
  *
  * START-DESCRIPTION:
@@ -352,8 +354,8 @@ void op_system() {
 
     case 1012: /* SD version number */
 //      k_put_c_string(Q_M_REV_STAMP, descr);
-/* 20240126 mab add revstamp mods, VM rev and SD rev */  
-		  k_put_c_string(VM_REV_STAMP, descr);
+/* rev 0.9.1 */  
+		  k_put_c_string(SD_REV_STAMP, descr);
       break;
 
     case 1013: /* User limit, excluding phantom pool */

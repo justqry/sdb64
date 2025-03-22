@@ -1,3 +1,30 @@
+Version 0.9-1
+
+-------------
+(mab) Add PROC back to GPL.BP. Users have requested it and CPROC will abort if it finds a 
+        paragraph of type "PQ"
+        
+      Add TAPE and ACCOUNT.RESTORE subsystem as optionally installed software.
+
+      Rework revision methodology.  Original release introduced two revision tracks,
+       one for the VM another for the SD mods to commands, ideas on user / accounts etc.
+       The thought was that very few changes would be made to the VM and we would maintain
+       compatibility with QM/ScarletDME at revision 2.6-6.  With some of the recent changes
+       (addition of Sodium, Embedded Python and more importantly the dynamic file prefix change from ~ to %),
+       SD is no longer completely compatible with 2.6-6 version systems.
+       Roll back to single revision track and start at rev 0.9-1 .
+       *** As a result you MUST shutdown and restart the OS on delete and install of SD  ***
+       If you have user / group accounts saved from previous installs, a prompt for upgrading the accounts
+       will occur at login.
+       
+      Correct handling of embedded newlines in MESSAGES, Display of SYSMSG(msg_nbr) should now inlcude the 
+        necessary new line and return characters.
+        
+      Correct the "HELP" command in ED(itor), now displays all of HELP if no additional command text given.
+        Remove call to kernel(K$HELP,'') not avail on SD.
+
+
+
 Version 0.9.0
 
 -------------

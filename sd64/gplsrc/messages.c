@@ -18,6 +18,7 @@
  *
  * START-HISTORY:
  * 31 Dec 23 SD launch - prior history suppressed
+ * rev 0.9.1 Mar 25 mab correct output of messages with embedded newline
  * END-HISTORY
  *
  * START-DESCRIPTION:
@@ -226,10 +227,12 @@ char* sysmsg(int msg_no) {
     switch (*(p + 1)) {
       case 'n':
         *p = '\n';
+/* rev 0.9.1  new line requires cr for correct display output */  
+        *(p+1) = '\r';      
       /*  strcpy(p + 1, p + 2); */
-        memmove(p + 1, p + 2, strlen(p+2));
+      /*  memmove(p + 1, p + 2, strlen(p+2)); */
       /* get ride of dublicate last character */
-        p[strlen(p)-1] = '\0';
+      /*  p[strlen(p)-1] = '\0'; */
         break;
       case 't':
         *p = '\t';

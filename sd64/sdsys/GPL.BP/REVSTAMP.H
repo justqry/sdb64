@@ -17,6 +17,7 @@
 * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 * 
 * START-HISTORY:
+* rev 0.9.1 return to single rev tracking
 * 31 Dec 23 SD launch - prior history suppressed
 * END-HISTORY
 *
@@ -26,13 +27,14 @@
 *
 * START-CODE
 
+* N O T E:  Must manually edit REVSTAMP.H in GPL.BP 
+* OR run REVSTAMP in sd to sync this version with   
+* REVSTAMP.H found in GPL.BP                        
+$define MAJOR.REV      0
+$define MINOR.REV      9
+$define BUILD          1
+$define SD.REV.STAMP   "0.9-1"
 
-
-$define MAJOR.REV      2
-$define MINOR.REV      6
-$define BUILD          6
-$define VM.REV.STAMP   "2.6-6"
-$define SD.REV.STAMP   "0.9.0"
 
 $define SD.COPYRIGHT.YEAR "2007"
 

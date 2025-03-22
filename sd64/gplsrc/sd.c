@@ -21,6 +21,7 @@
  * 15 Jun 24 add bootstrap build option install option -I
  * 02 Jul 24 -i  typeo will hit bootstrap option
  * 08 Aug 24 mab add code to embedded python if EMBED_PYTHON defined 
+ * rev 0.9.1 Mar 25 return to single rev track 
  * END-HISTORY
  *
  * START-DESCRIPTION:
@@ -429,8 +430,8 @@ Private bool comlin(int argc, char *argv[]) {
           if (!stricmp(argv[arg], "--HELP")) {
             goto help;
           } else if (!stricmp(argv[arg], "--VERSION")) {
-/* 20240126 mab add revstamp mods, VM rev and SD rev */            
-            printf("String Database (sd) Version %s (%s) Virtual Machine Version %s\n", SD_REV_STAMP, BUILD_TARGET,VM_REV_STAMP);
+/* rev 0.9.1 Mar 25 return to single rev track */            
+            printf("String Database (sd) Version %s %s\n", SD_REV_STAMP, BUILD_TARGET);
             exit(0);
           } else
             goto unrecognised;
